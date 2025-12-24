@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>THE PAYMENT GATEWAY</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="payment-card">
+    <h2>THE PAYMENT GATEWAY</h2>
+
+    <div class="field">
+      <label for="cardNo">Card Number</label>
+      <input
+        id="cardNo"
+        type="text"
+        maxlength="16"
+        placeholder="Enter 16-digit card number"
+        readonly
+      />
+    </div>
+
+    <div class="field">
+      <label for="cvv">CVV</label>
+      <input
+        id="cvv"
+        type="password"
+        maxlength="3"
+        placeholder="***"
+        hidden
+      />
+    </div>
+
+    <button class="btn btn-enable" onclick="l2_enableInput()">
+      Enable Input
+    </button>
+
+    <button class="btn btn-verify" onclick="l2_verifyCard()">
+      Verify Card
+    </button>
+
+    <!-- hidden logic button -->
+    <button id="verifyBtn" style="display:none;"></button>
+
+    <div id="result"></div>
+  </div>
+
+  <!-- JS file link -->
+  <script src="script.js"></script>
+</body>
+</html>

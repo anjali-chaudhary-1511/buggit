@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Transaction History</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background-color: black; color: white; }
+    h1 { color: #39FF14; }
+    .row { margin: 10px 0; padding: 10px; border-bottom: 1px solid #ccc; }
+    #win{color:#39FF14;}
+  </style>
+</head>
+<body>
+
+<h1>Transaction History</h1>
+
+<div id="data"></div>
+
+<h2 id="win">Congratulations! You have successfully exploited the SQL Injection vulnerability.</h3><br>
+<h3>Well played, hacker!</h3>
+
+<script>
+  
+  document.getElementById("data").innerHTML = `
+    <div class="row">₹10,499 — Laptop</div>
+    <div class="row">₹1,299 — Accessories</div>
+    <div class="row">₹599 — Online Subscription</div>
+  `;
+</script>
+
+</body>
+</html>

